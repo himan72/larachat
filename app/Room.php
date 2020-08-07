@@ -25,4 +25,9 @@ class Room extends Model
     {
         return 'slug';
     }
+
+    public function messages()
+    {
+        return $this->hasMany(Message::class);
+    }
 }

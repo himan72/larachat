@@ -24,3 +24,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/rooms', 'RoomController@index')
     ->middleware('auth')
     ->name('rooms.index');
+
+Route::get('/rooms/{room}', 'RoomController@show')
+    ->middleware('auth')
+    ->name('rooms.show');

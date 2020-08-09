@@ -12,6 +12,8 @@ class Messages extends Component
      */
     public $room;
 
+    protected $listeners = [ 'messageCreated'];
+
     public function mount(Room $room)
     {
         $this->room = $room;
@@ -22,5 +24,10 @@ class Messages extends Component
         return view('livewire.rooms.messages', [
             'messages' => $this->room->messages()->latest()->get(),
         ]);
+    }
+
+    public function messageCreated()
+    {
+        $this->render();
     }
 }

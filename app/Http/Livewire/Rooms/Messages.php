@@ -12,11 +12,21 @@ class Messages extends Component
      */
     public $room;
 
-    protected $listeners = [ 'messageCreated'];
+    public $roomId;
+
+
+    protected function getListeners()
+    {
+        return [
+            'messageCreated',
+            "echo-private:room.{$this->roomId},MessagePosted" => 'messageCreated',
+            ];
+    }
 
     public function mount(Room $room)
     {
         $this->room = $room;
+        $this->roomId = $room->id;
 
     }
     public function render()

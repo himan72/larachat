@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Rooms;
 
+use App\Events\MessagePosted;
 use App\Room;
 use Livewire\Component;
 
@@ -38,6 +39,8 @@ class CreateMessage extends Component
         $this->body = '';
 
         $this->emit('messageCreated');
+
+        broadcast(new MessagePosted($this->room))->toOthers();
 
     }
 }

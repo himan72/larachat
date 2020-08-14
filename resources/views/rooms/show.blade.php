@@ -12,7 +12,7 @@
                                 <h3>Liste des Utilisateurs</h3>
                             </div>
                         </div>
-                        <livewire:rooms.users />
+                        <livewire:rooms.users :room="$room" />
                     </div>
                 </div>
                 <div class="col-xl-8 col-lg-8 col-md-8 col-sm-12 col-12">
